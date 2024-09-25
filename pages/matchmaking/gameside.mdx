@@ -1,0 +1,72 @@
+# Game Side Integration
+
+### Overview
+
+### Step 1: Setting Up the Blueprint Nodes
+
+Edgegap Matchmaker provides several Blueprint nodes to help integrate matchmaking into your game logic.
+
+#### Key Nodes:
+- Create Matchmaking Ticket: Use this node to submit a matchmaking request. This node will send player attributes (e.g., region, latency) to the matchmaker for processing.
+
+![picture 1](../../images/791109c2a0b7078e08a1cd81d54c71d5d90285f6bc19faa24f636b34fd3f5dc7.png)  
+
+
+- Get Matchmaking Ticket: This node reads the current status of the matchmaking ticket, providing information on whether a player is in queue, matched, or assigned to a server.
+
+![picture 2](../../images/7802abb0e573b1b2004a7788df78d5833dc17d2bba412931922c40d296080909.png)  
+
+
+- Delete Matchmaking Ticket: If a player cancels matchmaking, this node will delete the matchmaking request from the system.
+
+![picture 3](../../images/cfbc0e4856851e97987285961750780fcbaf3ba7bcdd1a634e9100c3110e431f.png)  
+
+#### Example Blueprint Workflow:
+
+1. Initiating Matchmaking:
+    - Call the Create Matchmaking Ticket node when the player clicks "Find Match."
+    - Pass relevant player attributes (e.g., game mode, latency) to the node.
+
+Usually, the player attributes are stored in a JSON format. Here is an example of a player profile JSON object:
+    
+```json 
+{
+    "profile": "beta-test-profile",
+    "attributes":
+    {
+        "elo_rating": 500,
+        "selected_game_mode": "BattleRoyale",
+        "latency":
+        {
+            "Dallas": 35
+        },
+        "selected_map": [
+            "solomap"
+        ],
+        "selected_region": [
+            "North America"
+        ]
+    }
+}
+```
+
+In Unreal, using the Json library, you can convert this JSON object to a string and pass it to the Create Matchmaking Ticket node.
+
+![picture 0](../../images/67269bcfb3630d13aac11ce1b54fe74e727fb48f8543ba0b666bae369c51de36.png)  
+
+
+2. Polling for Match Status:
+    - Use Get Matchmaking Ticket in a loop to check the status of the match. Once a match is found, transition the player to the assigned game server.
+
+![picture 4](../../images/1fc18075ed7e37feb882e2cfca7522f67f64e6e8cf757acad62035a1f5cb7815.png)  
+
+3. Canceling Matchmaking:
+    - If the player cancels matchmaking, call Delete Matchmaking Ticket to remove the ticket from the queue.
+
+    ![picture 5](../../images/9ed5ca2073304d6445e621fbb7b6d7e5de97e4e91bdfb93005ee3992bc78298e.png)  
+
+
+### Step 2: Testing
+
+Once your Blueprint logic is set up, test your matchmaking functionality by deploying servers via Edgegap’s platform and ensuring players are correctly matched based on the rules defined in your configuration.
+
