@@ -1,9 +1,6 @@
 {
   "index": "Introduction",
   "gettingstarted": "Getting Started",
-  "multiplayer": "Multiplayer",
-  "userstats": "User Stats",
-  "otherfunctions": "Other Functions",
   "about": {
     "title": "About",
     "type": "page"

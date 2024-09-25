@@ -14,7 +14,7 @@ const config: DocsThemeConfig = {
         />
       </svg>
       <span style={{ marginLeft: ".4em", fontWeight: 1000, marginTop: ".4en" }}>
-        Steam Integration Kit
+        EdgeGap Integration Kit
       </span>
     </>
   ),
