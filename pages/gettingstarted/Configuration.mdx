@@ -2,30 +2,38 @@ import { Callout } from 'nextra/components'
 
 # Configuration
 
-## 
+This section will guide you through the configuration of Edgegap's Integration Kit for Unreal Engine.
 
-This section will guide you through the configuration of Steam Kit.
+## Basics
 
-As you may now know, Steam Integration Kit is built on top of the Online Steam Subsystem. This means that you will need to configure the Online Steam Subsystem before you can use the Steam Integration Kit.
+Please note that in the project settings, you will see two options: **Authorization Key** and **Deployer Token**. 
 
-```ini copy showLineNumbers filename="DefaultEngine.ini"
+### Authorization Key
 
-[OnlineSubsystem]
-DefaultPlatformService=Steam
+The Authorization Key is a unique API key that allows you to authenticate with Edgegap's platform. This will be included in the headers of your API requests to Edgegap's API(handled by the Integration Kit).
 
-[ConsoleVariables]
-net.CurrentHandshakeVersion=2
-net.MinHandshakeVersion=2
+1. Go to the [Edgegap Dashboard](https://app.edgegap.com/).
 
-[/Script/Engine.Engine]
-!NetDriverDefinitions=ClearArray
-+NetDriverDefinitions=(DefName="GameNetDriver",DriverClassName="SteamSockets.SteamSocketsNetDriver",DriverClassNameFallback="OnlineSubsystemUtils.IpNetDriver")
+2. Click on the **Settings** tab.
 
-[/Script/OnlineSubsystemSteam.SteamNetDriver]
-NetConnectionClassName=SteamSockets.SteamSocketsNetConnection
+![picture 0](../../images/31273fa1809f8e5855eb1ea464e7d49f77b33a4756357b63b51bed688963e53e.png)  
 
-[/Script/OnlineSubsystemUtils.IpNetDriver]
-MaxClientRate=1000000000
-MaxInternetClientRate=1000000000
-InitialConnectTimeout=120.0
-```
+3. Go to the **Tokens** section, present on the right side of the pop-up menu.
+
+![picture 1](../../images/1d5ca0a389d7acf1fb6a66a315819fe3e4566621c3b1c426937a4e2a4570b3be.png)  
+
+4. Press on **Create API Token** and give it a name. I will name it **EGIK API Token**. Make sure to set **Is Quick Start** to **False**.
+
+![picture 2](../../images/3d3d1d1838739712d1c3d5766fef8c7012a3bb7cc5a80b0733236384597974c6.png)  
+
+5. Now when the token is created, click on the **Copy** button to copy the token to your clipboard and paste it in the **Authorization Key** field in the project settings.
+
+![picture 4](../../images/5542eb28765e8718077b1357cd093b7bff8509b2e69883cc66973dbed51f5832.png)  
+
+![picture 5](../../images/ce3dfbc2e45802660c7e0c4fc90f13d777ca594f221b72d962f455aee7e2072b.png)  
+
+Done! You have successfully added the Authorization Key to your project settings.
+
+### Deployer Token
+
+The Deployer Token is a unique API key that allows you to authenticate with Edgegap's platform and push builds to the Edgegap platform. This will be used to make and deploy server builds to Edgegap's platform.
