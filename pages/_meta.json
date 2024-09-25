@@ -1,0 +1,28 @@
+{
+  "index": "Introduction",
+  "gettingstarted": "Getting Started",
+  "multiplayer": "Multiplayer",
+  "userstats": "User Stats",
+  "otherfunctions": "Other Functions",
+  "about": {
+    "title": "About",
+    "type": "page"
+  },
+  "changelog": {
+    "title": "Changelog",
+    "type": "page"
+  },
+  "marketplace": {
+    "title": "Marketplace ↗",
+    "type": "page",
+    "href": "https://www.unrealengine.com/marketplace/en-US/product/steam-integration-kit",
+    "newWindow": true
+  },
+  "contact": {
+    "title": "Support ↗",
+    "type": "page",
+    "href": "https://discord.gg/betidestudio",
+    "newWindow": true
+  },
+  "integrations": "Integrations"
+}

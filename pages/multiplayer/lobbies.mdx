@@ -1,0 +1,121 @@
+# Lobbies
+
+There are basically two methods to use lobbies with the Steam Integration Kit.
+
+## Direct Steamworks SDK Method
+
+This is the most common way to use lobbies directly with the functions provided by the Steamworks SDK and exposed to Blueprints by Steam Integration Kit.
+
+### Create a Lobby
+
+To create a direct steam lobby, you can use the `CreateLobby` function. This function will create a new lobby and return the lobby ID if it was a success.
+
+Please make sure to store reference to the lobby ID, as you will need it to modify the lobby later.
+
+![picture 0](../../images/a79a348b44b184930058e448f97ce93de15e807458df983501bfd9175d25bea9.png)  
+
+
+### Update Lobby Data
+
+Now that you have created a lobby, you can update the lobby data, including lobby owner data, lobby member data, and lobby type etc.
+
+#### Set Lobby Data
+
+To update the lobby data, you can use the `SetLobbyData` function. This function will update the lobby data with the given key and value.
+
+![picture 1](../../images/7f0da7a2835d1484f75fc72a5a19eab6d2b77c287c1e78e43174074b21684c24.png)  
+
+Like in the above example, we update the map name associated with the lobby. 
+
+#### Set Lobby Member Data
+
+To update the lobby member data, you can use the `SetLobbyMemberData` function. This function will update the lobby member data with the given key and value. Also, just to add, this can only update the local user's data for the lobby.
+
+
+![picture 2](../../images/642bb7095ff95483ae41acdf1b847413c8d0845015f68fd62ac35328cae7e8d0.png)  
+
+#### Set Lobby Type 
+
+To update the lobby type, you can use the `SetLobbyType` function. This function will update the lobby type with the given type.
+
+![picture 3](../../images/3b853b764db35f02cb74b1898b3ffb032750e28ae2ec2740ac5865d8eb404f51.png)  
+
+Please note, this value will just update the option you selected while creating the lobby session.
+
+
+### Finding Lobbies
+
+To find lobbies, you can use the `FindLobbies` function. This function will find the lobbies return the lobby IDs of found sessions if it was a success.
+
+![picture 4](../../images/3a4ffb52fb9b3eb8f1674f460a13d5424bd05558faca18ccd3efc5295060fd85.png)  
+
+
+Now that you have the lobby IDs, we can either join the lobby or get the lobby data to display in the UI. Let's talk about both:
+
+#### Joining a Lobby
+
+To join a lobby, you can use the `JoinLobby` function. This function will join the lobby with the given lobby ID.
+
+![picture 5](../../images/680a152657ec7dfce0a8dcd6df162f9781bd8dd7bc10aebdf69c67657ae06bb6.png)  
+
+Like in the above example, we get the length of found lobbies, then subtract 1 to get the first Lobby ID and join it. (Remember, the array starts from 0 and that's why we subtract 1)
+
+#### Get Lobby Data
+
+To get the lobby data, you can use the `GetLobbyData` function. This function will get the lobby data with the given key.
+
+`RequestLobbyData` function is used to get the lobby data from the Steam backend. This function is only used to get the data from the Steam backend, and you can use `GetLobbyData` to get the data from the local cache.
+
+![picture 6](../../images/485848c78e23f1965d14cd9c54352a603bf442cc438fc01baa1b27729048760a.png)  
+
+
+### Leave Lobby
+
+To leave the lobby, you can use the `LeaveLobby` function. This function will leave the lobby.
+
+![picture 7](../../images/a9097305b4c627dd72fb1d892935c912a176a29b1b45bdcd5132f6bc9f71d54a.png)  
+
+
+### Invite Friend to Lobby
+
+To invite a friend to the lobby, you can use the `InviteFriendToLobby` function. This function will invite the friend to the lobby with the given lobby ID.
+
+![picture 9](../../images/d2acfed40e925ddb96597d653ed06a5e16ade2b0435b03460fcc7ac71681e75c.png)  
+
+To get the steam ID of the friend, please checkout the [Steam Friends](/multiplayer/steam-friends) section.
+
+### Lobby To Session
+
+We already know that lobbies are only existing on the Steam backend, but you can link a game server with a given lobby and it can be a Listen Server too.
+
+#### Linking Lobby to a Dedicated Server Session
+
+To link a lobby to a dedicated server session, you can use the `SetLobbyGameServer` function. This function will link the lobby to the dedicated server session with the given lobby ID and game server IP.
+
+<iframe src="https://blueprintue.com/render/gochho-e/" scrolling="no" allowfullscreen width="100%" height="400px"></iframe>
+Cannot view the code? [Click here](https://blueprintue.com/blueprint/gochho-e/)
+
+In the above example, we set the lobby game server with the first dedicated server ip and port we found. (Remember, this is just an example and you may want to filter the dedicated server by some criteria)
+
+#### Linking Lobby to a Listen Server Session
+
+
+So let's talk about the basics first. A Listen Server is a server that is also a client. This means that the server is running on the same machine as the client. This is the most common way to implement multiplayer in games.
+
+Here we will make the session owner a listen server and link the lobby to the listen server session. (For better understanding, please assume Lobby and Session are different thing and Lobby is just a chat room)
+
+To link a lobby to a listen server session, you can use the `SetLobbyGameServer` function. This function will link the lobby to the listen server session with the given lobby ID and player's steam ID.
+
+<iframe src="https://blueprintue.com/render/5xamuwr0/" scrolling="no" allowfullscreen width="100%" height="400px"></iframe>
+Cannot view the code? [Click here](https://blueprintue.com/blueprint/5xamuwr0/)
+
+In the above example, we set the lobby game server with the player's steam ID. Remember, the player's steam ID is the steam ID of the player who is hosting the session.
+
+IMPORTANT : The level has to be opened with the `listen` tag to make the player a listen server.You can either use the `OpenLevel` function with the `listen` tag or use `Execute Console Command` function with the `open` command and the `?listen` tag.
+
+
+#### Callback Handling
+
+When a Game Server is set, you will get a callback. You can handle the callback and join the user to the session.
+
+<iframe src="https://blueprintue.com/render/lu_py_gv/" scrolling="no" allowfullscreen width="100%" height="400px"></iframe>

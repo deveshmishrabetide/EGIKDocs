@@ -1,0 +1,62 @@
+import { Callout } from 'nextra/components'
+
+# Player Stats
+
+Adding a new player stats to Steam and then modifiying it in-game is a simple process, thanks to Steam Integration Kit. This guide will walk you through the steps to add a new player stat to Steam and then modify it.
+
+## Adding a New Player Stat
+
+To add a new player stat to Steam, you need to follow these steps:
+
+1. Open the [Steamworks Developer](https://partner.steamgames.com/apps) site and log in with your Steam account.
+
+2. On the Steamworks Developer site, click on Steamwork Settings and then find the Stat's page. 
+   
+   You can also use the following direct link but make sure to changhe your appid in the end of the link:
+   
+   https://partner.steamgames.com/apps/stats/{appid}
+
+   ![picture 0](../../images/87adc93d9faf89c7f4be5d6bd27acb85acb7b9adf9e94dddbd19d2a3b2a31373.png)  
+
+
+
+3. On the Stats page, click on the "Add Stat" button and configure the new stat. You can set the stat's name, type, and other properties.
+
+![picture 1](../../images/393bbfaeece6f28bf0e194daf44b9932004b017d1297c3cdfc02517604c3b7f7.png)  
+
+Do press Save to save the stat ;)
+
+## Fetching the Player Stat from Steam Backend
+
+To fetch the player stat from Steam backend, you need to use the `RequestCurrentStats` node:
+
+![picture 5](../../images/314cd9506c86e6df77521989edca1e7d9ff550dccefdfa4f050fdb81678c52ea.png)  
+
+
+## Get Player Stat in-game from Local Value
+
+<Callout type="info">
+  Make sure to first fetch the player stat from Steam backend before trying to load the player stat in-game.
+</Callout>
+
+To fetch the player stat in-game, you need to use the `GetStat{Type}` class. Here is an example of how you can fetch the player stat in-game:
+
+The two valid types are `Int` and `Float`.
+
+![picture 3](../../images/0cf2a4a839f8cd6346f7b7e96872c2daa2efa21b3ef28d89dbb6292960953a88.png)  
+
+## Modifying the Local Player Stat in-game
+
+As you see in the image below, we have a few stats already added to the game. Let's use one of them to modify it in-game.
+
+![picture 2](../../images/a76c84da88acd0cf357ce1891fd9fc0e980c27e747602edee123062acf7919c9.png)  
+
+To modify the player stat in-game, you need to use the `SetStat{Type}` class. Here is an example of how you can modify the player stat in-game:
+
+![picture 4](../../images/02a4394bcf2f08a386c570afc4497a520ff7715128b48ba4e618137f9ec81403.png)  
+
+## Submitting the Player Stat to Steam Backend
+
+To submit the player stat to Steam backend, you need to use the `StoreStats` node:
+
+![picture 6](../../images/138a24574fa915696d73e2ab9d3ecf17390e92c4e6f02dea0abec512d80b5f80.png)  

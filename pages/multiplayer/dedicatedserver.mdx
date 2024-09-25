@@ -1,0 +1,74 @@
+# Dedicated Server sessions
+Dedicated server sessions are a way to host a game server on a dedicated server. This is the most common and secure way to implement multiplayer.
+
+## Introduction
+
+Dedicated servers are the most common way to implement multiplayer in games. They are:
+
+- Secure
+- Scalable
+- Reliable
+
+## How it works
+
+Dedicated servers are game servers that run on a dedicated machine. This machine is usually hosted by a third-party service provider or a virtual machine. The game server is responsible for:
+
+- Hosting the game
+- Managing the game state
+- Handling player connections
+
+
+## Requirements
+
+To host a dedicated server, you will need:
+
+- A dedicated machine
+- A game server build which can only be made from Source Engine. More info can be found [here](https://partner.steamgames.com/doc/features/multiplayer/game_servers).
+
+
+## Creating Dedicated Server Session
+
+To create a dedicated server session, you can use the `CreateDedicatedServerSession` function. This function will create a new dedicated server session and return the session ID if it was a success.
+
+![picture 0](../../images/9d439c5c8c46492ed815b428d17791a301a0fa77016116c325fd49b2597a477a.png)  
+
+### Logging in the server for Steam Backend
+
+To log in the server for Steam Backend, you can use the `LogOnAnonymous` function. This function will log in the server to the Steam Backend annoyoymously.
+
+![picture 1](../../images/daa779b0c8dcc8632d6f7170fe997d83db6f1ce0249a09fae23d873f0306302d.png)  
+
+### Server Session Properties
+
+There are a lot of functions that you can use to set the server session properties. You can set the server name, the map name, the max players, and many more.
+
+![picture 2](../../images/0c3f48e66b0d65b692436897f01652c69c830467a89aebafe3ef6301fa67dbc7.png)  
+
+Let's talk about a few of them in detail:
+
+#### Set Server Name
+
+Sets the name of server as it will appear in the server browser.
+
+![picture 3](../../images/c96d8a1f1d4ef64c82c91d5bc25660e7536a5aa326e25d3465ce5b4a4539e22f.png)  
+
+#### Set Map Name
+
+Sets the name of map to report in the server browser.
+
+![picture 4](../../images/f7894bcde09c6e7243377d549e1c35b1b36c108acae8f1a430baefab8232d05a.png)  
+
+#### Set Max Players
+
+Sets the maximum number of players allowed on the server at once.
+
+This value may be changed at any time.
+
+![picture 5](../../images/80ab6f77529e54b0458b3b8dc968110695ae80d3ad9152b0682b43a87282c135.png)  
+
+#### Set Key Value
+
+Add/update a rules key/value pair.
+
+![picture 6](../../images/1d5af9b148cb41825f1e40a4578d4d013d0e13a822fa253271507e2f6c5d1cc7.png)  
+

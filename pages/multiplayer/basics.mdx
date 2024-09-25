@@ -1,0 +1,29 @@
+# Basics of Multiplayer with Steam
+## Introduction
+
+I will try to explain the basics of multiplayer with Steam and the different ways to implement it. This guide is not a step-by-step tutorial, but rather an overview of the different concepts and methods.
+
+## Steamworks SDK
+
+There are basically three ways/methods to use multiplayer with the Steam SDK. This may sound confusing at first, but it's actually quite simple. The three methods are:
+
+### Matchmaking and Lobbies
+
+
+Let me quote from the Steamwork's website itself : 
+
+Steam's peer-to-peer matchmaking is built around the concept of a lobby. A lobby is a entity that lives on the Steam back-end servers that is a lot like a chat room. Users can create a new lobby; associate data with a lobby; search for lobbies based on that data; join lobbies; and share information with other users in the lobby. A single lobby can have up to 250 users in it, although typically most games have at most 2-16 players.
+
+Now this is me speaking : 
+
+**As you see, Lobbies are only existing on the Steam backend but but but, you can link a game server with a given lobby and it can be a Listen Server too.**
+### P2P Networking
+
+This is already built into the SteamSubsystem and whenever you travel to a new level, the SteamSubsystem will automatically create a new P2P connection. This will only happen if you have used the `listen` tag while travelling the level.
+
+### Game Servers
+
+This is the most common and secure way to implement multiplayer. More info can be found [here](https://partner.steamgames.com/doc/features/multiplayer/game_servers).
+
+
+But don't worry if you don't want to read the whole Steamworks documentation, I will explain everything that matters under the Dedicated Servers section.
