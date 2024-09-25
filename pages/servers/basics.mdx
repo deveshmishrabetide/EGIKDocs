@@ -1,0 +1,36 @@
+# Basics of Servers with EdgeGap
+
+So, you want to host a server with EdgeGap? Great! This guide will help you get started with the basics of hosting a server with EdgeGap.
+
+We will be trying to cover all the info in layman's terms, so you don't need to be a server expert to get started. For more info and advanced configurations, you can always refer to EdgeGap's [official documentation](https://docs.edgegap.com/docs/).
+
+There are 4 important terms you need to know before you start:
+
+### 1. Application
+
+There easiest way to think of an application is as a build of your server uploaded to EdgeGap. An application is what you make deployments with. At its core, an application only contains a few options. Most of the configurations and settings are created in the version.
+
+### 2. Version
+
+A Version in EdgeGap is where most of the application configurations reside. Each application can have multiple versions, allowing you to manage updates, hotfixes, or testing branches of your game or software.
+
+What You Can Configure in a Version:
+
+- Command and Arguments: The command to launch your server and any arguments that may be needed.
+- Port Mapping: Specify which ports your game will use.
+- Access Control: Determine which IPs or ranges can access your servers.
+- Memory and CPU: Set the amount of memory and CPU your server will use.
+- Environment Variables: Set environment variables for your server.
+
+### 3. Deployment
+
+A deployment is an active container instance of a specific version of your application. Deployments are what players connect to when they want to play your game or use your software. 
+
+What You Can Configure in a Deployment:
+
+- Environment Variables: Set environment variables for your server.
+- Webhook updates: Set up a webhook to automatically update your server when a new version is deployed.
+
+### 4. Session
+
+In EdgeGap, Sessions work as an additional layer on top of deployments, primarily for managing player connections and game instances dynamically within an existing deployment. Sessions allow more flexibility when handling players who hop in and out of games, or when running multiple games or matches within a single server deployment.

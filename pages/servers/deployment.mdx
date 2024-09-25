@@ -1,0 +1,17 @@
+# Deployments with EdgeGap
+
+So, let's say you are ready to deploy your server with EdgeGap. Great! This guide will help you get started with the basics of deploying a server with EdgeGap.
+
+## Pre-Requisites
+
+Before you start deploying your server, you need to have the following:
+
+- An EdgeGap account. If you don't have one, you can sign up [here](https://app.edgegap.com/signup).
+- In order to make dedicated servers, you need to have Unreal Engine built from source. You can follow the instructions [here](https://dev.epicgames.com/documentation/en-us/unreal-engine/building-unreal-engine-from-source) or watch the video tutorial [here](https://youtu.be/jFe37SviLk8?si=xoKmlC66H9EjiTEs).
+- You will need to install the [Unreal Cross-Compiling Toolchain](https://dev.epicgames.com/documentation/en-us/unreal-engine/linux-development-requirements-for-unreal-engine) that matches your Unreal Engine version to be able to package your game server for Linux. Follow the instructions on the linked page, and make sure to restart your computer after the installation. If everything goes well, you should be able to build your game server for Linux from the editor manually.
+- Install [Docker](https://docs.docker.com/desktop/install/windows-install/) on your machine. Please ensure Docker is running prior to building your server using the Edgegap Unreal Engine Plugin. Refer to our documentation on Docker if you want to know more about it, but you won't be using it manually when using the plugin.
+
+## Configuring Your Server
+
+1. In the `Edgegap Integration Kit` settings in your Unreal Engine project, you will find a section called `Application Info`. Here you can set the `Application Name` and `Application Image` along with some other extra settings. 
+
