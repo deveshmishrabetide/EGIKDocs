@@ -17,8 +17,8 @@ const config: DocsThemeConfig = {
         gap: 10,
       }}
     >
-      <Image src={edgegap} alt="edgegap" height={34} width={34} />
-      <div style={{ marginLeft: ".4em", fontWeight: 1000, marginTop: ".4en" }}>
+      <Image src={edgegap} alt="edgegap" height={43} width={43} />
+      <div style={{ fontWeight: 1000, marginTop: ".4en" }}>
         EdgeGap Integration Kit
       </div>
     </div>
