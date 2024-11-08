@@ -6,83 +6,9 @@ You’ll need to define rules to determine how players are matched in your game.
 
 Here is an example:
 
-```json
-{
-  "version": "0.1.0",
-  "application": {
-    "name": "myapp",
-    "version": "demo-app-2460c4"
-  },
-  "profiles": {
-    "beta-test-profile": {
-      "rules": {
-        "initial": {
-          "match_size": {
-            "type": "player_count",
-            "attributes": {
-              "target": 4
-            }
-          },
-          "elo_rating": {
-            "type": "number_difference",
-            "attributes": {
-              "max_difference": 50
-            }
-          },
-          "selected_game_mode": {
-            "type": "string_equality"
-          },
-          "selected_map": {
-            "type": "intersection",
-            "attributes": {
-              "overlap": 1
-            }
-          },
-          "selected_region": {
-            "type": "intersection",
-            "attributes": {
-              "overlap": 1
-            }
-          },
-          "latency": {
-            "type": "latencies",
-            "attributes": {
-              "difference": 50,
-              "max_latency": 80
-            }
-          }
-        },
-        "expansions": {
-          "5": {
-            "elo_rating": {
-              "max_difference": 100
-            }
-          },
-          "10": {
-            "elo_rating": {
-              "max_difference": 200
-            },
-            "latency": {
-              "difference": 100,
-              "max_latency": 150
-            }
-          },
-          "20": {
-            "match_size": {
-              "target": 3
-            }
-          },
-          "30": {
-            "match_size": {
-              "target": 2
-            }
-          }
-        }
-      }
-    }
-  }
-}
-```
+Updated Example at : https://docs.edgegap.com/docs/gen2-matchmaker#simple-example
+
+
 In this example, we have taken some variables which are used to match players together. Here is a brief explanation of each variable:
 
 - `match_size` ensures four players are matched together.
