@@ -24,12 +24,12 @@ const config: DocsThemeConfig = {
     </div>
   ),
   project: {
-    link: "https://github.com/betidestudio/SteamIntegrationKit",
+    link: "https://github.com/betidestudio/EdgegapIntegrationKit",
   },
   chat: {
     link: "https://discord.gg/betidestudio",
   },
-  docsRepositoryBase: "https://github.com/shuding/nextra-docs-template",
+  docsRepositoryBase: "https://github.com/betidestudio/EdgegapIntegrationKit",
   footer: {
     text: "Made with ❤️ by Betide Studio",
   },
